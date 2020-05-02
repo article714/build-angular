@@ -15,10 +15,13 @@ apt-get update \
 # builder user
 adduser --home /home/builder --disabled-password --shell /bin/bash --gecos "" --uid 3000 --gid 100 builder
 
-# npm install (to save time after)
+# npm install deps (to save time after)
 
-cd /container/data
-npm install -g
+mkdir -p /home/builder/certificare-base-deps
+cp /container/data/package.json /home/builder/certificare-base-deps
+chown -R builder. /home/builder/certificare-base-deps
+cd /home/builder/certificare-base-deps
+su builder -c 'npm install -g'
 
 #--
 # Cleaning
