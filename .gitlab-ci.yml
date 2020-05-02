@@ -1,0 +1,47 @@
+stages:
+  - build
+  - tests
+  - publish_images
+
+variables:
+  BUILDANGULAR_CERTIFICARE_VERSION: '0.0.1'
+  DOCKER_REGISTRY_HOST: '83l02d2f.gra5.container-registry.ovh.net'
+
+#-----------------------------------------
+build_image:
+  stage: build
+  tags:
+    - shell
+  script:
+    - docker build --force-rm -t certificare/build-angular:${BUILDANGULAR_CERTIFICARE_VERSION} -t ${DOCKER_REGISTRY_HOST}/certificare/build-angular:${BUILDANGULAR_CERTIFICARE_VERSION} --build-arg BUILDANGULAR_CERTIFICARE_VERSION=${BUILDANGULAR_CERTIFICARE_VERSION} .
+
+#------------------------------------------
+# QCheck (TODO)
+
+#------------------------------------------
+# Tests
+
+test_image:
+  stage: tests
+  image:
+    name: certificare/build-angular:${BUILDANGULAR_CERTIFICARE_VERSION}
+  services:
+    - name: certificare/build-angular:${BUILDANGULAR_CERTIFICARE_VERSION}
+      alias: odoo-srv
+  tags:
+    - docker
+  script:
+    # wait for bindns to be fully fit
+    - echo "TODO"
+
+#------------------------------------------
+# Publish
+publish_image:
+  stage: publish_images
+  tags:
+    - shell
+  only:
+    refs:
+      - production
+  script:
+    - docker push ${DOCKER_REGISTRY_HOST}/certificare/build-angular:${BUILDANGULAR_CERTIFICARE_VERSION}
