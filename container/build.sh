@@ -20,6 +20,9 @@ adduser --home /home/builder --disabled-password --shell /bin/bash --gecos "" --
 mkdir -p /home/builder/certificare-base-deps
 cp /container/data/package.json /home/builder/certificare-base-deps
 chown -R builder. /home/builder/certificare-base-deps
+chgrp -R 100 /usr/local/lib/node_modules
+chmod g+rwx /usr/local/lib/node_modules
+
 cd /home/builder/certificare-base-deps
 su builder -c 'npm install -g'
 
