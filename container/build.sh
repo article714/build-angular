@@ -12,6 +12,10 @@ export LANG=en_US.utf8
 apt-get update \
     apt-get upgrade -yq
 
+# install chromium
+
+apt-get install -yq chromium-driver chromium
+
 # builder user
 adduser --home /home/builder --disabled-password --shell /bin/bash --gecos "" --uid 3000 --gid 100 builder
 

@@ -4,7 +4,7 @@ stages:
   - publish_images
 
 variables:
-  BUILDANGULAR_CERTIFICARE_VERSION: '0.0.1'
+  BUILDANGULAR_CERTIFICARE_VERSION: '0.0.2'
   DOCKER_REGISTRY_HOST: '83l02d2f.gra5.container-registry.ovh.net'
 
 #-----------------------------------------
