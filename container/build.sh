@@ -14,7 +14,7 @@ apt-get update \
 
 # install chromium
 
-apt-get install -yq chromium-driver chromium
+apt-get install -yq chromium-driver chromium procps
 
 # builder user
 adduser --home /home/builder --disabled-password --shell /bin/bash --gecos "" --uid 3000 --gid 100 builder
