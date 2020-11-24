@@ -4,7 +4,7 @@ stages:
   - publish_images
 
 variables:
-  BUILDANGULAR_VERSION: '0.0.3'
+  BUILDANGULAR_VERSION: '0.0.4'
   BASE_IMAGE_NAME: 'article714/build-angular'
 
 #-----------------------------------------
@@ -35,4 +35,5 @@ test_image:
   script:
     # wait for bindns to be fully fit
     - echo "TODO"
+    - git --version
 
