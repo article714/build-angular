@@ -1,4 +1,4 @@
-FROM node:10-buster-slim
+FROM node:10-buster
 LABEL maintainer="Certificare C. Guychard<christophe@certificare.fr>"
 
 # Generate locale C.UTF-8 for postgres and general locale data
@@ -10,6 +10,6 @@ COPY container /container
 
 # container building
 
-RUN /container/build.sh 
+RUN /container/build.sh
 
 USER builder

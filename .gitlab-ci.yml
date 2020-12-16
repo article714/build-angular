@@ -4,7 +4,7 @@ stages:
   - publish_images
 
 variables:
-  BUILDANGULAR_VERSION: '0.0.4'
+  BUILDANGULAR_VERSION: '0.0.5'
   BASE_IMAGE_NAME: 'article714/build-angular'
 
 #-----------------------------------------
