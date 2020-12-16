@@ -13,7 +13,7 @@ build_image:
   tags:
     - shell
   variables:
-    BUILD_OPTS: '--force-rm --no-cache'
+    BUILD_OPTS: '--network=internal_bridge --force-rm --no-cache'
   script:
     - docker build ${BUILD_OPTS} -t ${BASE_IMAGE_NAME}:${BUILDANGULAR_VERSION} --build-arg BUILDANGULAR_VERSION=${BUILDANGULAR_VERSION} .
 
